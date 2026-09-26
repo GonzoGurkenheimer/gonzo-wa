@@ -3,6 +3,9 @@ on: push
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      GONZO_KEYSTORE_B64: ${{ secrets.GONZO_KEYSTORE }}
+      GONZO_KS_PASS: ${{ secrets.GONZO_KS_PASS }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-java@v4
