@@ -1,0 +1,20 @@
+plugins { id 'com.android.application' }
+android {
+  namespace 'de.eulenfunk.gonzowa'
+  compileSdk 33
+  defaultConfig { applicationId 'de.eulenfunk.gonzowa'; minSdk 24; targetSdk 33; versionCode 4; versionName '1.4' }
+  signingConfigs {
+    gonzo {
+      storeFile file('Z:/gonzo/android/gonzo.jks')
+      storePassword 'gonzo1234'
+      keyAlias 'gonzo'
+      keyPassword 'gonzo1234'
+    }
+  }
+  buildTypes {
+    release { minifyEnabled false; signingConfig signingConfigs.gonzo }
+    debug { signingConfig signingConfigs.gonzo }
+  }
+  compileOptions { sourceCompatibility JavaVersion.VERSION_17; targetCompatibility JavaVersion.VERSION_17 }
+}
+dependencies { implementation 'androidx.appcompat:appcompat:1.6.1' }
